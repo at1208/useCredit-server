@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 //controllers
-const { sendOTP, verifyOTP,signout } = require('../controllers/user')
+const { sendOTP, verifyOTP,signout } = require('../controllers/auth')
 
 // validators
 const { runValidation } = require('../validators');
-const { userValidator } = require('../validators/user');
+const { userValidator } = require('../validators/auth');
 
 
 router.post('/send-otp', sendOTP);

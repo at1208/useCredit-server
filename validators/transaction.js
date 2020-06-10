@@ -6,17 +6,22 @@ exports.transactionValidator = [
         .isEmpty()
         .withMessage('Beneficiary name is required'),
 
-    check('accountNumber')
+    check('beneficiaryAcc')
         .not()
         .isEmpty()
         .withMessage('Account Number is required'),
 
-    check('ifscCode')
+    check('beneficiaryConfirmAcc')
+        .not()
+        .isEmpty()
+        .withMessage('Account Number is required'),
+
+    check('beneficiaryIfscCode')
         .not()
         .isEmpty()
         .withMessage('IFSC code is required'),
 
-    check('amount')
+    check('beneficiaryAmount')
         .not()
         .isEmpty()
         .withMessage('Amount is required'),

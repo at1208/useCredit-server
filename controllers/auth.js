@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../models/auth');
 
 var randomstring = require("randomstring");
 const bcrypt = require('bcrypt');
@@ -66,7 +66,7 @@ module.exports.sendOTP = async (req,res) => {
    const { mobileNumber, otp } = req.body
    const user = await User.findOne({ mobileNumber})
    if(!user){
-     return res.status(401).json({
+     return res.status(400).json({
        res: 'not ok',
        message: "Invalid OTP"
      })
@@ -85,7 +85,7 @@ module.exports.sendOTP = async (req,res) => {
             res: 'ok'
           })
         }else{
-          return res.status(401).json({
+          return res.status(400).json({
             message: 'Invalid OTP',
             res: 'not ok'
           })

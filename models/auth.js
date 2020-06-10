@@ -12,7 +12,8 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
  },
- transactions:[{ type: ObjectId, ref: 'Transaction' }],
+ transactions:[{ type: ObjectId, ref: 'Transaction',unique: true }],
+ orders:[{ type: ObjectId, ref: 'Order',unique: true}]
 },{ timestamps: true }
 )
 

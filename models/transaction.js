@@ -1,24 +1,43 @@
 const mongoose =  require('mongoose');
 
-const userSchema = new mongoose.Schema({
-beneficiaryName: {
+
+const transactionSchema = new mongoose.Schema({
+  beneficiaryName: {
         type: String,
         required: true
-},
-accountNumber: {
+  },
+  beneficiaryAcc: {
         type: Number,
         required:true
-},
-ifscCode:{
-        type: String
-},
-amount: {
-        type: Number
-},
-purpose:{
+  },
+  beneficiaryConfirmAcc: {
+        type: Number,
+        required:true
+  },
+  beneficiaryIfscCode:{
+        type: String,
+        required:true
+  },
+  beneficiaryAmount: {
+        type: Number,
+        required:true
+  },
+  beneficiaryPurpose:{
         type:String
-}
-},{ timestamps: true }
+  },
+  paymentStatus: {
+    type: String,
+    default: "failed"
+  },
+  payment_id: {
+    type: String,
+    default: null
+  },
+  order_id: {
+    type: String,
+    default: null
+  }
+  },{ timestamps: true }
 )
 
-module.exports = mongoose.model('Transaction', userSchema);
+module.exports = mongoose.model('Transaction', transactionSchema);
