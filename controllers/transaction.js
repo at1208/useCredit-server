@@ -128,7 +128,6 @@ var generatedSignature = crypto
 module.exports.getTransactions = async (req,res) => {
   const  user = await User.findOne({mobileNumber: req.params.mobile })
    .populate('transactions', 'beneficiaryName beneficiaryAcc beneficiaryIfscCode beneficiaryAmount beneficiaryPurpose createdAt paymentStatus',null, { sort: { 'createdAt': -1 } })
-
    .select('mobileNumber')
    .exec((err,result) => {
      if(err){

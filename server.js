@@ -9,7 +9,7 @@ const app = express();
 
 const userRoutes = require('./routes/auth');
 const transactionRoutes = require('./routes/transaction');
-
+const payoutRoutes = require('./routes/payout');
 // db
 mongoose
     .connect(process.env.DATABASE, {
@@ -33,7 +33,7 @@ app.use(cookieParser());
 
 app.use('/api', userRoutes);
 app.use('/api', transactionRoutes);
-
+app.use('/api', payoutRoutes);
 
 // port
 const port = process.env.PORT || 8000;
